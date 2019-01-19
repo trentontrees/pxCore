@@ -80,75 +80,75 @@
 
     a. Build all externals for use during the pxscene build.
 
-        ~~~~sh
-        cd examples/pxScene2d/external
-        ~~~~
-        For Linux and Mac run:
-        ~~~~sh
-        ./build.sh
-        ~~~~
-        For Raspberry Pi run:
-        ~~~~sh
-        ./build_rpi.sh
-        ~~~~
-        For Windows (**Run from inside a Visual Studio Command Prompt**):
-        ~~~~bat
-        buildWindows.bat
-        ~~~~
+      ~~~~sh
+      cd examples/pxScene2d/external
+      ~~~~
+      For Linux and Mac run:
+      ~~~~sh
+      ./build.sh
+      ~~~~
+      For Raspberry Pi run:
+      ~~~~sh
+      ./build_rpi.sh
+      ~~~~
+      For Windows (**Run from inside a Visual Studio Command Prompt**):
+      ~~~~bat
+      buildWindows.bat
+      ~~~~
 
     b. To use system libraries for external libs during pxscene build, install libs on the system. To build just node, duktape and breakpad with the patches necessary for pxscene, do the following.
 
-        For Mac and Linux OS.
+      For Mac and Linux OS.
 
-        Build duktape
-        ~~~~sh
-        cd examples/pxScene2d/external/dukluv/
-        mkdir build
-        cd build
-        cmake ..
-        cmake --build . --config Release
-        ~~~~
-        Build Node
-        ~~~~sh
-        cd examples/pxScene2d/external/node
-        ./configure --shared
-        make -j1
-        ln -sf out/Release/obj.target/libnode.so.48 libnode.so.48
-        ln -sf libnode.so.48 libnode.so
-        ln -sf out/Release/libnode.48.dylib libnode.48.dylib
-        ln -sf libnode.48.dylib libnode.dylib
-        ~~~~
-        Build breakpad
-        ~~~~sh
-        cd examples/pxScene2d/external/breakpad-chrome_55
-        ./configure
-        make
-        ~~~~
+      Build duktape
+      ~~~~sh
+      cd examples/pxScene2d/external/dukluv/
+      mkdir build
+      cd build
+      cmake ..
+      cmake --build . --config Release
+      ~~~~
+      Build Node
+      ~~~~sh
+      cd examples/pxScene2d/external/node
+      ./configure --shared
+      make -j1
+      ln -sf out/Release/obj.target/libnode.so.48 libnode.so.48
+      ln -sf libnode.so.48 libnode.so
+      ln -sf out/Release/libnode.48.dylib libnode.48.dylib
+      ln -sf libnode.48.dylib libnode.dylib
+      ~~~~
+      Build breakpad
+      ~~~~sh
+      cd examples/pxScene2d/external/breakpad-chrome_55
+      ./configure
+      make
+      ~~~~
 
-        For Windows
+      For Windows
 
-        Build Duktape
-        ~~~~bat
-        cd examples/pxScene2d/external/dukluv/
-        patch -p1 -i patches/dukluv.git.patch
-        mkdir build
-        cd build
-        cmake ..
-        cmake --build . --config Release -- /m
-        ~~~~
-        Build node
-        ~~~~bat
-        cd examples/pxScene2d/external/libnode-v6.9.0
-        CALL vcbuild.bat x86 nosign
-        cd ..
-        ~~~~
-        Build breakpad
-        ~~~~bat
-        cd examples/pxScene2d/external/breakpad-chrome_55
-        CALL gyp\gyp.bat src\client\windows\breakpad_client.gyp --no-circular-check
-        cd src\client\windows
-        msbuild breakpad_client.sln /p:Configuration=Release /p:Platform=Win32 /m
-        ~~~~
+      Build Duktape
+      ~~~~bat
+      cd examples/pxScene2d/external/dukluv/
+      patch -p1 -i patches/dukluv.git.patch
+      mkdir build
+      cd build
+      cmake ..
+      cmake --build . --config Release -- /m
+      ~~~~
+      Build node
+      ~~~~bat
+      cd examples/pxScene2d/external/libnode-v6.9.0
+      CALL vcbuild.bat x86 nosign
+      cd ..
+      ~~~~
+      Build breakpad
+      ~~~~bat
+      cd examples/pxScene2d/external/breakpad-chrome_55
+      CALL gyp\gyp.bat src\client\windows\breakpad_client.gyp --no-circular-check
+      cd src\client\windows
+      msbuild breakpad_client.sln /p:Configuration=Release /p:Platform=Win32 /m
+      ~~~~
 
 4. Build **pxScene**
 
